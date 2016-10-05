@@ -1,0 +1,6 @@
+- programmieren gegen ein interface statt gegen konkrete implementierung
+- has-a gegenüber is-a vererbung bevorzugen
+- implementierung egal, aber muss vorhanden sein (interface)
+- einfach erweiterbar
+
+negativ: viele objekte/klassen
