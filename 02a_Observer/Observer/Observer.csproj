@@ -44,9 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Event.cs" />
-    <Compile Include="TempObserver.cs" />
+    <Compile Include="ISubject.cs" />
+    <Compile Include="Observers.cs" />
     <Compile Include="Subject.cs" />
-    <Compile Include="Observer.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
   </ItemGroup>

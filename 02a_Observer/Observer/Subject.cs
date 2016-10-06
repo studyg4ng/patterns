@@ -11,21 +11,21 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Observer {
-    class Subject {
+    class Subject : ISubject {
 
-        List<Observer> observers = new List<Observer>();
-        string temp, pressure, humidity; 
+        List<IObserver> observers = new List<IObserver>();
+        string temp, pressure, humidity;
 
-        public void registerObserver(Observer observer) {
+        public void registerObserver(IObserver observer) {
             observers.Add(observer);
         }
 
-        public void removeObserver(Observer observer) {
+        public void removeObserver(IObserver observer) {
             observers.Remove(observer);
         }
 
         public void notifyObservers(Event e) {
-            foreach(Observer o in observers) {
+            foreach (IObserver o in observers) {
                 o.update(e);
             }
         }

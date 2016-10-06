@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Observer {
-    interface Observer {
+    interface IObserver {
         void update(Event e);
     }
 }

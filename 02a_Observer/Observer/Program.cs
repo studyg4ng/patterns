@@ -11,12 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Observer {
-    class Program
-    {
+    class Program {
         static void Main(string[] args) {
             Subject sub = new Subject();
             sub.registerObserver(new TempObserver());
-            sub.changePressure("10 bar");
+            sub.changePressure("10 bar"); // dont write in console (no pressureObserver added yet)
             sub.registerObserver(new PressureObserver());
             sub.changeTemp("45°C");
             sub.changePressure("20 bar");
