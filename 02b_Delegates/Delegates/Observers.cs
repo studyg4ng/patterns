@@ -12,19 +12,20 @@ using System.Threading.Tasks;
 
 namespace Delegates {
     class ObserverMethods {
-        public static void printTemp(Event e) {
-            ObserverEvent oe = (ObserverEvent)e;
-            if (oe.eventType == EventType.TEMP_CHANGED) Console.WriteLine("NEW TEMP: {0}", oe.message);
-        }
+        public static void onValueChange(object sender, EventArgs args) {
+            WeatherDataEventArgs wdArgs = (WeatherDataEventArgs) args;
 
-        public static void printPressure(Event e) {
-            ObserverEvent oe = (ObserverEvent)e;
-            if (oe.eventType == EventType.PRESSURE_CHANGED) Console.WriteLine("NEW PRESSURE: {0}", oe.message);
-        }
-
-        public static void printHumidity(Event e) {
-            ObserverEvent oe = (ObserverEvent)e;
-            if (oe.eventType == EventType.TEMP_CHANGED) Console.WriteLine("NEW TEMP: {0}", oe.message);
+            switch(wdArgs.valueType) {
+                case ValueType.HUMIDITY_CHANGED:
+                    Console.WriteLine("NEW TEMP: {0}", wdArgs.changedValue);
+                    break;
+                case ValueType.PRESSURE_CHANGED:
+                    Console.WriteLine("NEW PRESSURE: {0}", wdArgs.changedValue);
+                    break;
+                case ValueType.TEMP_CHANGED:
+                    Console.WriteLine("NEW TEMP: {0}", wdArgs.changedValue);
+                    break;
+            }
         }
     }
 }

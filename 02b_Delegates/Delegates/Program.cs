@@ -14,11 +14,10 @@ namespace Delegates {
     class Program {
         static void Main(string[] args) {
             Subject sub = new Subject();
-            sub.handler += ObserverMethods.printTemp;
             sub.changeTemp("45°C");
+            sub.handler += ObserverMethods.onValueChange;
             sub.changeTemp("45°C");
             sub.changePressure("20 bar");
-            sub.handler += ObserverMethods.printPressure;
             sub.changePressure("20 bar");
         }
     }

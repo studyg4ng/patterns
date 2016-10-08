@@ -14,22 +14,26 @@ namespace Delegates {
     class Subject {
         string temp, pressure, humidity;
 
-        public delegate void notify(Event e);
-        public event notify handler; // a real event handler
+        public delegate void Notify(object sender, EventArgs args);
+        public event Notify handler; // a real event handler
+
+        private void onValueChanged(WeatherDataEventArgs wdArgs) {
+            if (handler != null) handler(this, wdArgs);
+        }
 
         public void changeTemp(string temp) {
             this.temp = temp;
-            handler(new ObserverEvent(EventType.TEMP_CHANGED, temp));
+            onValueChanged(new WeatherDataEventArgs(ValueType.TEMP_CHANGED, temp));
         }
 
         public void changePressure(string pressure) {
             this.pressure = pressure;
-            handler(new ObserverEvent(EventType.PRESSURE_CHANGED, pressure));
+            onValueChanged(new WeatherDataEventArgs(ValueType.PRESSURE_CHANGED, pressure));
         }
 
         public void changeHumidity(string humidity) {
             this.humidity = humidity;
-            handler(new ObserverEvent(EventType.HUMIDITY_CHANGED, humidity));
+            onValueChanged(new WeatherDataEventArgs(ValueType.HUMIDITY_CHANGED, humidity));
         }
     }
 }

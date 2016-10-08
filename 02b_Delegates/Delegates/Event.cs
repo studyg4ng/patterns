@@ -11,23 +11,16 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Delegates {
-    interface Event {
-        string getMessage();
-    }
 
-    enum EventType { TEMP_CHANGED, PRESSURE_CHANGED, HUMIDITY_CHANGED };
+    enum ValueType { TEMP_CHANGED, PRESSURE_CHANGED, HUMIDITY_CHANGED };
 
-    class ObserverEvent : Event {
-        public EventType eventType;
-        public string message;
+    class WeatherDataEventArgs : EventArgs {
+        public ValueType valueType;
+        public string changedValue;
 
-        public ObserverEvent(EventType eventType, string message) {
-            this.eventType = eventType;
-            this.message = message;
-        }
-
-        public string getMessage() {
-            return this.message;
+        public WeatherDataEventArgs(ValueType valueType, string changedValue) {
+            this.valueType = valueType;
+            this.changedValue = changedValue;
         }
     }
 }
