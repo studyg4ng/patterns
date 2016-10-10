@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Delegates {
 
-    enum ValueType { TEMP_CHANGED, PRESSURE_CHANGED, HUMIDITY_CHANGED };
+    enum ValueType { TEMP, PRESSURE, HUMIDITY };
 
     class WeatherDataEventArgs : EventArgs {
         public ValueType valueType;

@@ -15,10 +15,26 @@ namespace Delegates {
         static void Main(string[] args) {
             Subject sub = new Subject();
             sub.changeTemp("45°C");
-            sub.handler += ObserverMethods.onValueChange;
+            sub.handler += onValueChange;
             sub.changeTemp("45°C");
             sub.changePressure("20 bar");
             sub.changePressure("20 bar");
+        }
+
+        public static void onValueChange(object sender, EventArgs args) {
+            WeatherDataEventArgs wdArgs = (WeatherDataEventArgs)args;
+
+            switch(wdArgs.valueType) {
+                case ValueType.HUMIDITY:
+                    Console.WriteLine("NEW TEMP: {0}", wdArgs.changedValue);
+                    break;
+                case ValueType.PRESSURE:
+                    Console.WriteLine("NEW PRESSURE: {0}", wdArgs.changedValue);
+                    break;
+                case ValueType.TEMP:
+                    Console.WriteLine("NEW TEMP: {0}", wdArgs.changedValue);
+                    break;
+            }
         }
     }
 }
