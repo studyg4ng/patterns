@@ -6,29 +6,35 @@ using System.Text;
 using System.Drawing;
 using System.Net;
 using System.Threading;
+using System.ComponentModel;
 
 namespace InitialProxy
 {
     public class RealImage : AbstractImage
     {
-        protected readonly String url;
-        private Image img;
+        protected readonly String _url;
+        private Image _img;
 
         public RealImage(String url)
         {
-            this.url = url;
+            this._url = url;
         }
 
-        public Image getImage()
+        public void loadImage(object sender, DoWorkEventArgs e) {
+            Thread.Sleep(1000);
+            WebRequest requestPic = WebRequest.Create(this._url);
+            WebResponse responsePic = requestPic.GetResponse();
+            this._img = Image.FromStream(responsePic.GetResponseStream());
+        }
+
+        public override Image getImage()
         {
-            if (img == null)
-            {
-                Thread.Sleep(1000);
-                WebRequest requestPic = WebRequest.Create(url);
+            if(this._img == null) {
+                WebRequest requestPic = WebRequest.Create(this._url);
                 WebResponse responsePic = requestPic.GetResponse();
-                img = Image.FromStream(responsePic.GetResponseStream());
+                this._img = Image.FromStream(responsePic.GetResponseStream());
             }
-            return img;
+            return this._img;
         }
     }
 }

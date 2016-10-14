@@ -20,7 +20,6 @@ namespace InitialProxy
         }
 
         public void update() {
-            //ToDo
         }
 
     }

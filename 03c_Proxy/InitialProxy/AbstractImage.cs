@@ -10,10 +10,10 @@ namespace InitialProxy
 {
     public abstract class AbstractImage
     {
-        private Image img;
+        private Image _img;
 
-        public virtual Image getImage(string url) {
-            return this.img;
+        public virtual Image getImage() {
+            return this._img;
         }
     }
 }
