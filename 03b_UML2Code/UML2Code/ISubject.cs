@@ -12,6 +12,6 @@ namespace UML2Code
     {
         void addObserver(IObserver observer);
         void removeObserver(IObserver observer);
-        void notifiyObserver();
+        void notifiyObserver(EventArgs args);
     }
 }

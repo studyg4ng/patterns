@@ -10,19 +10,22 @@ namespace UML2Code
 {
     class Student : Person
     {
-        private WStrategy _wStrategy;
+        private IWStrategy _wStrategy;
 
-        public Student(WStrategy wStrategy) {
+        public Student(IWStrategy wStrategy, string name, int age) : base(name, age) {
             this._wStrategy = wStrategy;
         }
 
-        public void setWStrategy(WStrategy wStrategy) {
+        public void setWStrategy(IWStrategy wStrategy) {
             this._wStrategy = wStrategy;
+        }
+
+        public IWStrategy getWStrategy() {
+            return this._wStrategy;
         }
 
         public void doWork() {
             this._wStrategy.doWork();
         }
-
     }
 }

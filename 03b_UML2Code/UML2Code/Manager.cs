@@ -12,28 +12,45 @@ namespace UML2Code {
     {
         private static Manager _instance;
         private List<IObserver> _observers = new List<IObserver>();
+        private List<Person> _persons = new List<Person>();
 
-        private Manager() {
+        private Manager() {}
 
+        public void addPerson(Person person) {
+            notifiyObserver(new PersonEventArgs(person, "added"));
+            this._persons.Add(person);
+        }
+
+        public void removePerson(Person person) {
+            notifiyObserver(new PersonEventArgs(person, "removed"));
+            this._persons.Remove(person);
+        }
+
+        public int countPersons() {
+            return this._persons.Count;
+        }
+
+        public List<Person>.Enumerator getPersons() {
+            return this._persons.GetEnumerator();
         }
 
         public static Manager getInstance() {
-            if(_instance == null) return new Manager();
-            else return _instance;
+            if(Manager._instance == null) Manager._instance = new Manager();
+            return Manager._instance;
         }
 
         public void addObserver(IObserver observer) {
             this._observers.Add(observer);
         }
 
-        public void notifiyObserver() {
-            foreach(IObserver observer in _instance._observers) {
-                observer.update(new Event());
-            }
-        }
-
         public void removeObserver(IObserver observer) {
             _instance._observers.Remove(observer);
+        }
+
+        public void notifiyObserver(EventArgs args) {
+            foreach(IObserver observer in _instance._observers) {
+                observer.update(args);
+            }
         }
     }
 }

@@ -8,7 +8,7 @@ using System;
 
 namespace UML2Code
 {
-    interface WStrategy
+    interface IWStrategy
     {
         void doWork(); // weicht ab
     }

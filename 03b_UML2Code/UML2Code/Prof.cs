@@ -12,6 +12,10 @@ namespace UML2Code
     {
         private decimal _salary; // weicht ab
 
+        public Prof(decimal salary, string name, int age) : base(name, age) {
+            this._salary = salary;
+        }
+
         public decimal getSalary() {
             return this._salary;
         }

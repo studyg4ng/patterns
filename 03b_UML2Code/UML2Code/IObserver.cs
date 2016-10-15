@@ -10,6 +10,6 @@ namespace UML2Code
 {
     interface IObserver
     {
-        void update(Event e);
+        void update(EventArgs e);
     }
 }

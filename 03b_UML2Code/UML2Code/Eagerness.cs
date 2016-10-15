@@ -8,7 +8,7 @@ using System;
 
 namespace UML2Code
 {
-    class Eagerness : WStrategy {
+    class Eagerness : IWStrategy {
         public void doWork() {
             Console.WriteLine("{0} in {1}", "doWork", this.GetType().Name);
         }
