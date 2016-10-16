@@ -14,7 +14,7 @@ namespace RPNCalc
 {
     interface IMyCalcStack<T>
     {
-        int Count { get; }
+        int count { get; }
         T pop();
         void push(T item);
     }

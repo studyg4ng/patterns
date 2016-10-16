@@ -15,7 +15,7 @@ namespace RPNCalc
 {
     class RPNCalc
     {
-        IMyCalcStack<double> _stack;
+        private IMyCalcStack<double> _stack;
 
         public RPNCalc(IMyCalcStack<double> stack) { // set implementation
             this._stack = stack;
@@ -64,7 +64,7 @@ namespace RPNCalc
                 }
             }
 
-            if(_stack.Count == 1) {
+            if(_stack.count == 1) {
                 return _stack.pop().ToString();
             }
             else {

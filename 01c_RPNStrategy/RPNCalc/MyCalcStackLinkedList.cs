@@ -17,7 +17,7 @@ namespace RPNCalc {
 
         public MyCalcStackLinkedList() { }
 
-        public int Count
+        public int count
         {
             get
             {

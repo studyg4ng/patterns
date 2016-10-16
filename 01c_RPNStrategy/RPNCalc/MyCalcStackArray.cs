@@ -14,24 +14,24 @@ namespace RPNCalc {
     class MyCalcStackArray<T> : IMyCalcStack<T> {
 
         private T[] _array;
-        private int count = -1;
+        private int _count = -1;
 
         public MyCalcStackArray(int capacity) {
             this._array = new T[capacity];
         }
 
-        public int Count
+        public int count
         {
             get
             {
-                return this.count + 1;
+                return this._count + 1;
             }
         }
 
         public T pop() {
-            if(this.count >= 0) {
-                T tmp = _array[count];
-                count--;
+            if(this._count >= 0) {
+                T tmp = _array[_count];
+                _count--;
                 return tmp;
             }
             else {
@@ -40,9 +40,9 @@ namespace RPNCalc {
         }
 
         public void push(T item) {
-            if(this.count < this._array.Length) {
-                count++;
-                _array[count] = item;
+            if(this._count < this._array.Length) {
+                _count++;
+                _array[_count] = item;
             }
             else {
                 throw new Exception("Stack is full");
