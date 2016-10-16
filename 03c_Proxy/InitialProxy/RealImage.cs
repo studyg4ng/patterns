@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*1510601027 fhs38532
+  Thomas Siller*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,16 +23,10 @@ namespace InitialProxy
             this._url = url;
         }
 
-        public void loadImage(object sender, DoWorkEventArgs e) {
-            Thread.Sleep(1000);
-            WebRequest requestPic = WebRequest.Create(this._url);
-            WebResponse responsePic = requestPic.GetResponse();
-            this._img = Image.FromStream(responsePic.GetResponseStream());
-        }
-
         public override Image getImage()
         {
             if(this._img == null) {
+                Thread.Sleep(1000);
                 WebRequest requestPic = WebRequest.Create(this._url);
                 WebResponse responsePic = requestPic.GetResponse();
                 this._img = Image.FromStream(responsePic.GetResponseStream());

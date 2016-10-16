@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*1510601027 fhs38532
+  Thomas Siller*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +22,7 @@ namespace InitialProxy
             this._realImage = new RealImage(url);
             this._bgw = new BackgroundWorker();
             this._bgw.WorkerReportsProgress = true;
-            this._bgw.DoWork += new DoWorkEventHandler(this.loadImage);
+            this._bgw.DoWork += this.loadImage;
             this._bgw.ProgressChanged += pceh;
             this._bgw.RunWorkerAsync();
             
@@ -33,14 +36,6 @@ namespace InitialProxy
 
         public override Image getImage() {
             return this._loaded ? this._realImage.getImage() : this._loadImage;
-            /*if(this._realImage != null) {
-                this._realImage = new RealImage(url);
-
-
-                return Image.FromFile(@"../../WAITING.jpg");
-            } else {
-                return this._realImage.getImage();
-            }*/
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*1510601027 fhs38532
+  Thomas Siller*/
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,29 +14,26 @@ namespace InitialProxy
 {
     public partial class Form1 : Form
     {
-        //private String urlPrefix = "file:///c:/Users/Andreas/Pictures/";     // private readonly Image DUMMY = Image.FromFile(@"C:\Users\Andreas\Pictures\WAITING.jpg");
-        static private String urlPrefix = "http://student.cosy.sbg.ac.at/~anaderli/fh/";
-        static String[] filenames = { "Penguins.jpg", "Koala.jpg", "Desert.jpg", "Tulips.jpg", "Jellyfish.jpg", "Lighthouse.jpg" };
-        static MyPictureBox pb;
-        static AbstractImage image = new ProxyImage(urlPrefix + filenames[0], new ProgressChangedEventHandler(bgw_ProgressChanged));
+        private String _urlPrefix = "http://student.cosy.sbg.ac.at/~anaderli/fh/";
+        private String[] _filenames = { "Penguins.jpg", "Koala.jpg", "Desert.jpg", "Tulips.jpg", "Jellyfish.jpg", "Lighthouse.jpg" };
+        private MyPictureBox _pb;
+        private AbstractImage _image;
 
         public Form1()
         {
             InitializeComponent();
-
-            //RealImage image = new RealImage(urlPrefix + filenames[0]);
+            _image = new ProxyImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
+            _pb = new MyPictureBox(_image);
             
-            pb = new MyPictureBox(image);
-            
-            pb.Image = image.getImage();
-            pb.SizeMode = PictureBoxSizeMode.Zoom;
-            pb.Size = new Size(200, 200);
-            pb.Location = new Point(0, 0);
-            Controls.Add(pb);
+            _pb.Image = _image.getImage();
+            _pb.SizeMode = PictureBoxSizeMode.Zoom;
+            _pb.Size = new Size(200, 200);
+            _pb.Location = new Point(0, 0);
+            Controls.Add(_pb);
         }
 
-        private static void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e) {
-            pb.Image = image.getImage();
+        private void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e) {
+            _pb.Image = _image.getImage();
         }
     }
 }

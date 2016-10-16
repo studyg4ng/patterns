@@ -1,4 +1,7 @@
-﻿using System;
+﻿/*1510601027 fhs38532
+  Thomas Siller*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -15,19 +18,14 @@ namespace InitialProxy
         [STAThread]
         static void Main()
         {
-            test();
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
-            
-            
-
         }
 
         //TODO: remove the static keywords
 
-        private static BackgroundWorker bgw;
+        /*private static BackgroundWorker bgw;
 
 
         private static void test()
@@ -55,6 +53,6 @@ namespace InitialProxy
         {
             if (e.ProgressPercentage == 100)
                 Console.WriteLine("received completion notification.");
-        }
+        }*/
     }
 }
