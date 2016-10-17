@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 using System.ComponentModel; //needed for BackgroundWorker
 
-namespace InitialProxy
+namespace Factory
 {
     static class Program
     {

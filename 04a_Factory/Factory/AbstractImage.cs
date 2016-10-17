@@ -9,7 +9,7 @@ using System.Text;
 using System.Drawing;
 using System.Net;
 
-namespace InitialProxy
+namespace Factory
 {
     public abstract class AbstractImage
     {

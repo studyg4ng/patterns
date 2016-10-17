@@ -1,4 +1,4 @@
-﻿namespace InitialProxy
+﻿namespace Factory
 {
     partial class Form1
     {

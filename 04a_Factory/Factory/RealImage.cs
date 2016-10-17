@@ -11,7 +11,7 @@ using System.Net;
 using System.Threading;
 using System.ComponentModel;
 
-namespace InitialProxy
+namespace Factory
 {
     public class RealImage : AbstractImage
     {
@@ -27,9 +27,14 @@ namespace InitialProxy
         {
             if(this._img == null) {
                 Thread.Sleep(1000);
-                WebRequest requestPic = WebRequest.Create(this._url);
-                WebResponse responsePic = requestPic.GetResponse();
-                this._img = Image.FromStream(responsePic.GetResponseStream());
+                try {
+                    WebRequest requestPic = WebRequest.Create(this._url);
+                    WebResponse responsePic = requestPic.GetResponse();
+                    this._img = Image.FromStream(responsePic.GetResponseStream());
+                }
+                catch {
+                    return this._img = Image.FromFile(@"../../NO_IMAGE.jpg");
+                }
             }
             return this._img;
         }

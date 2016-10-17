@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace InitialProxy
+namespace Factory
 {
     public partial class Form1 : Form
     {
@@ -22,7 +22,9 @@ namespace InitialProxy
         public Form1()
         {
             InitializeComponent();
-            _image = new ProxyImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
+
+            _image = ImageFactory.createImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
+            //_image = new ProxyImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
             _pb = new MyPictureBox(_image);
             
             _pb.Image = _image.getImage();

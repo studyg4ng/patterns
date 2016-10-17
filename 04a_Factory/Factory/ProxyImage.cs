@@ -9,7 +9,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Net;
 
-namespace InitialProxy
+namespace Factory
 {
     public class ProxyImage : AbstractImage
     {
@@ -39,4 +39,3 @@ namespace InitialProxy
         }
     }
 }
-
