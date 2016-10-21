@@ -1,5 +1,8 @@
 ﻿/*1510601027 fhs38532
-  Thomas Siller*/
+  Thomas Siller
+  -------------------
+  1510601032 fhs38596
+  Patrick Obermüller*/
 
 using System;
 using System.Collections.Generic;
@@ -22,20 +25,17 @@ namespace Factory
         public Form1()
         {
             InitializeComponent();
+            ImageFactory imageFactory = ImageFactory.getInstance();
 
-            _image = ImageFactory.createImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
-            //_image = new ProxyImage(_urlPrefix + _filenames[0], bgw_ProgressChanged);
+            _image = imageFactory.createImage(_urlPrefix + _filenames[0]);
+
             _pb = new MyPictureBox(_image);
-            
             _pb.Image = _image.getImage();
+
             _pb.SizeMode = PictureBoxSizeMode.Zoom;
             _pb.Size = new Size(200, 200);
             _pb.Location = new Point(0, 0);
             Controls.Add(_pb);
-        }
-
-        private void bgw_ProgressChanged(object sender, ProgressChangedEventArgs e) {
-            _pb.Image = _image.getImage();
         }
     }
 }
