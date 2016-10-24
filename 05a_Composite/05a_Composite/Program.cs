@@ -11,56 +11,22 @@ using System.Text;
 using System.Threading.Tasks;
 using ObSi;
 using System.Xml;
+using System.Diagnostics;
 
 namespace Composite {
     class Program {
         static void Main(string[] args) {
-
             XmlDocument doc = FileIO.getXMLContent("../../media/input.xml");
-            IComponent root = generateTree(doc.FirstChild);
+            XmlComponentFactory componentFactory = XmlComponentFactory.getInstance();
+            IComponent component = componentFactory.createComponentTree(doc);
+            IComponent component1 = component.search("root");
+            IComponent component2 = component.search("B4");
+            IComponent component3 = component.search("C1");
 
-            Task monday = new Task(0, "MONTAG");
-
-            Task homework = new Task(0, "HOMEWORK");
-            Task morning = new Task(0, "MORNING");
-            Task getOutOfBed = new Task(0, "EAT");
-
-            getOutOfBed.add(new Task(20, "Eat Sausages"));
-            getOutOfBed.add(new Task(20, "Eat Bacon"));
-            getOutOfBed.add(new Task(20, "Eat Pumpkin"));
-
-            morning.add(new Task(20, "Put on Clothes"));
-            morning.add(new Task(20, "Brush teeth"));
-            morning.add(new Task(20, "Prepare food"));
-
-            homework.add(new Task(1, "Open Book"));
-            homework.add(new Task(333, "Do ........ homework"));
-            homework.add(new Task(333, "Push to Master"));
-
-            morning.add(getOutOfBed);
-            monday.add(morning);
-            monday.add(homework);
-
-            monday.printTaskDescription("");
-        }
-
-        public static IComponent generateTree(XmlNode node) {
-            switch (node.Name) {
-                case "list":
-                    List tmp = new List();
-                    foreach (XmlNode child in node.ChildNodes)
-                    {
-                        tmp.add(generateTree(child));
-                    }
-                    return tmp;
-                case "book":
-                    return 
-                        new Book();
-                case "cd":
-                    return new Cd();
-                default:
-                    return null;
-            }
-        }
+            Debug.Assert(component.Name == component1.Name);
+            Debug.Assert(component2.Price == 60);
+            Debug.Assert(component.Price == 155);
+            Console.ReadKey();
+        } 
     }
 }

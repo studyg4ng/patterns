@@ -46,7 +46,12 @@
     <Compile Include="Book.cs" />
     <Compile Include="Cd.cs" />
     <Compile Include="FileIO.cs" />
+    <Compile Include="IComponentFactory.cs" />
     <Compile Include="IComponent.cs" />
+    <Compile Include="JsonComponentFactory.cs" />
+    <Compile Include="XmlComponentFactory.cs" />
+    <Compile Include="XmlVisitor.cs" />
+    <Compile Include="IVisitor.cs" />
     <Compile Include="List.cs" />
     <Compile Include="Task.cs" />
     <Compile Include="Program.cs" />
