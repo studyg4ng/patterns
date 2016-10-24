@@ -83,10 +83,10 @@ namespace Decorator {
         }
 
         public override void Write(byte[] buffer, int offset, int count) {
-            this._stream.Write(buffer, offset, count);
             for(int i = 0; i < buffer.Length; i++) {
                 buffer[i] = Decode(buffer[i]);
             }
+            this._stream.Write(buffer, offset, count);
         }
 
         public abstract byte Encode(byte b);
