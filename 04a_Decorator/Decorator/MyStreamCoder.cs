@@ -13,9 +13,8 @@ namespace Decorator {
         Stream _stream;
         Boolean _decode;
 
-        public StreamEncoderDecoder(Stream stream, Boolean decode) {
+        public StreamEncoderDecoder(Stream stream) {
             this._stream = stream;
-            this._decode = decode;
         }
 
         public override bool CanRead
@@ -70,8 +69,7 @@ namespace Decorator {
         public override int Read(byte[] buffer, int offset, int count) {
             int result = this._stream.Read(buffer, offset, count);
             for(int i = 0; i < buffer.Length; i++) {
-                if(this._decode) buffer[i] = Decode(buffer[i]);
-                else buffer[i] = Encode(buffer[i]);
+                buffer[i] = Encode(buffer[i]);
             }
             return result;
         }
@@ -86,6 +84,9 @@ namespace Decorator {
 
         public override void Write(byte[] buffer, int offset, int count) {
             this._stream.Write(buffer, offset, count);
+            for(int i = 0; i < buffer.Length; i++) {
+                buffer[i] = Decode(buffer[i]);
+            }
         }
 
         public abstract byte Encode(byte b);

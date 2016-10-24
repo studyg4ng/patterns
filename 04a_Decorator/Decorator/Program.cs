@@ -11,7 +11,7 @@ using System.IO;
 namespace Decorator {
     class Program {
         static void Main(string[] args) { 
-            StreamReader reader = new StreamReader(new StreamRot13(new StreamRot13(File.OpenRead(@"../../input.txt")), true));
+            StreamReader reader = new StreamReader(new StreamRot13(new StreamRot13(File.OpenRead(@"../../input.txt"))));
             Console.WriteLine(reader.ReadLine());
             Console.ReadKey();
         }

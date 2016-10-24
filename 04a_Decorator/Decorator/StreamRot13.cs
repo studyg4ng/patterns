@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Decorator {
     class StreamRot13 : StreamEncoderDecoder {
-        public StreamRot13(Stream stream, Boolean decode = false) : base(stream, decode) {
+        public StreamRot13(Stream stream) : base(stream) {
         }
 
         public override byte Encode(byte b) {
