@@ -9,10 +9,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ObSi;
+using System.Xml;
 
-namespace _05a_Composite {
+namespace Composite {
     class Program {
         static void Main(string[] args) {
+
+            XmlDocument doc = FileIO.getXMLContent("../../media/input.xml");
+            IComponent root = generateTree(doc.FirstChild);
 
             Task monday = new Task(0, "MONTAG");
 
@@ -37,6 +42,25 @@ namespace _05a_Composite {
             monday.add(homework);
 
             monday.printTaskDescription("");
+        }
+
+        public static IComponent generateTree(XmlNode node) {
+            switch (node.Name) {
+                case "list":
+                    List tmp = new List();
+                    foreach (XmlNode child in node.ChildNodes)
+                    {
+                        tmp.add(generateTree(child));
+                    }
+                    return tmp;
+                case "book":
+                    return 
+                        new Book();
+                case "cd":
+                    return new Cd();
+                default:
+                    return null;
+            }
         }
     }
 }

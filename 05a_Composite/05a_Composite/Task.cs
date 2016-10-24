@@ -10,7 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace _05a_Composite {
+namespace Composite {
     class Task {
         private List<Task> _tasks = new List<Task>();
         private double _time;

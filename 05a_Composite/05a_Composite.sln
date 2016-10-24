@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05a_Composite", "05a_Composite\05a_Composite.csproj", "{CB1023F8-57DF-4937-A0F2-F63C5FC1AB88}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "05a_Composite\Composite.csproj", "{CB1023F8-57DF-4937-A0F2-F63C5FC1AB88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
