@@ -14,10 +14,6 @@ namespace Composite {
     interface IComponent {
         double Price { get; }
         string Name { get; }
-        void add(IComponent component);
-        void remove(IComponent component);
-        void operation();
-        void accept(IVisitor visitor);
         IComponent search(string name);
     }
 }

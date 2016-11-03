@@ -16,24 +16,16 @@ namespace Composite {
         public string Isbn { get; set; }
         public double Price { get; set; }
 
-        public void accept(IVisitor visitor) {
-            throw new NotImplementedException();
+        public IComponent search(string name) {
+            return (this.Name == name) ? this : null;
         }
 
         public void add(IComponent component) {
             throw new NotImplementedException();
         }
 
-        public void operation() {
-            throw new NotImplementedException();
-        }
-
         public void remove(IComponent component) {
             throw new NotImplementedException();
-        }
-
-        public IComponent search(string name) {
-            return (this.Name == name) ? this : null;
         }
     }
 }

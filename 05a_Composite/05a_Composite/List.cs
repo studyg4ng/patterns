@@ -33,13 +33,6 @@ namespace Composite {
         public void remove(IComponent component) {
             this._list.Remove(component);
         }
-        public void operation() {
-            throw new NotImplementedException();
-        }
-
-        public void accept(IVisitor visitor) {
-            visitor.visit(this);
-        }
 
         public IComponent search(string name) {
             if (this.Name == name) return this;
