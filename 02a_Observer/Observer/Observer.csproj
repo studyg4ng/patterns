@@ -45,7 +45,9 @@
   <ItemGroup>
     <Compile Include="Event.cs" />
     <Compile Include="ISubject.cs" />
-    <Compile Include="Observers.cs" />
+    <Compile Include="TempObserver.cs" />
+    <Compile Include="PressureObserver.cs" />
+    <Compile Include="HumidityObserver.cs" />
     <Compile Include="Subject.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

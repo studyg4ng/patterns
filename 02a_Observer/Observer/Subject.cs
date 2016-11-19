@@ -13,35 +13,35 @@ using System.Threading.Tasks;
 namespace Observer {
     class Subject : ISubject {
 
-        List<IObserver> observers = new List<IObserver>();
-        string temp, pressure, humidity;
+        private List<IObserver> _observers = new List<IObserver>();
+        private string _temp, _pressure, _humidity;
 
         public void registerObserver(IObserver observer) {
-            observers.Add(observer);
+            _observers.Add(observer);
         }
 
         public void removeObserver(IObserver observer) {
-            observers.Remove(observer);
+            _observers.Remove(observer);
         }
 
         public void notifyObservers(Event e) {
-            foreach (IObserver o in observers) {
-                o.update(e);
+            foreach (IObserver observer in this._observers) {
+                observer.update(e);
             }
         }
 
         public void changeTemp(string temp) {
-            this.temp = temp;
+            this._temp = temp;
             notifyObservers(new ObserverEvent(EventType.TEMP_CHANGED, temp));
         }
 
         public void changePressure(string pressure) {
-            this.pressure = pressure;
+            this._pressure = pressure;
             notifyObservers(new ObserverEvent(EventType.PRESSURE_CHANGED, pressure));
         }
 
         public void changeHumidity(string humidity) {
-            this.humidity = humidity;
+            this._humidity = humidity;
             notifyObservers(new ObserverEvent(EventType.HUMIDITY_CHANGED, humidity));
         }
     }

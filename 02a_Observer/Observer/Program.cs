@@ -15,7 +15,7 @@ namespace Observer {
         static void Main(string[] args) {
             Subject sub = new Subject();
             sub.registerObserver(new TempObserver());
-            sub.changePressure("10 bar"); // dont write in console (no pressureObserver added yet)
+            sub.changePressure("10 bar"); // no pressureObserver added yet
             sub.registerObserver(new PressureObserver());
             sub.changeTemp("45°C");
             sub.changePressure("20 bar");
