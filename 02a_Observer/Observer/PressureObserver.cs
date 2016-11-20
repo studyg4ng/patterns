@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Observer {
     class PressureObserver : IObserver {
         public void update(Event e) {
-            ObserverEvent oe = (ObserverEvent) e;
+            ObserverEvent oe = (ObserverEvent)e;
             if (oe.eventType == EventType.PRESSURE_CHANGED) Console.WriteLine("NEW PRESSURE: {0}", oe.message);
         }
     }

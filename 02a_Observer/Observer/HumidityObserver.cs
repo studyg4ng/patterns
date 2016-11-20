@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Observer {
     class HumidityObserver : IObserver {
         public void update(Event e) {
-            ObserverEvent oe = (ObserverEvent) e;
+            ObserverEvent oe = (ObserverEvent)e;
             if (oe.eventType == EventType.HUMIDITY_CHANGED) Console.WriteLine("NEW HUMIDITY: {0}", oe.message);
         }
     }

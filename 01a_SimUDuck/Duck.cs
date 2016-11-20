@@ -11,7 +11,6 @@ using System.Text;
 
 namespace SimUDuck_initial
 {
-
     abstract class Duck
     {
         private IQuackBehaviour quackBehaviour;
